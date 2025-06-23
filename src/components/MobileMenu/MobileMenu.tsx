@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './MobileMenu.module.scss';
 import Link from 'next/link';
 import { useAppContext } from '@/hooks/useAppContext';
@@ -8,6 +8,15 @@ import { linksMap } from '@/assets/data/linksMap';
 
 export const MobileMenu = () => {
 	const { setMobileMenuShown } = useAppContext();
+
+
+	useEffect(() => {
+		document.body.style.overflow = 'hidden';
+
+		return () => {
+			document.body.style.overflow = ''
+		}
+	}, []);
 
 	const handleClick = () => {
 		setTimeout(() => {

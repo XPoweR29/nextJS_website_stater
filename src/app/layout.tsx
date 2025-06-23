@@ -32,8 +32,6 @@ export default function RootLayout({
 }
 
 
-//TODO: notFoundPage.tsx 
-
 //TODO: Stworzyć header z opcjonalnym załączaniem chowania go oraz ze zmianą tła. 
 
 //TODO: implementacja galeri oraz hook UseGallery

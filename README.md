@@ -1,10 +1,10 @@
-## 🔗 Link Management System (`linksMap` + `linkHref`)
+**## 🔗 Link Management System (`linksMap` + `linkHref`)**
 
 This project uses a centralized system to define and use routes across the application, ensuring consistency, safety, and developer convenience.
 
 ---
 
-### 📁 Where
+**### 📁 Where**
 
 All links are stored in:
 
@@ -14,7 +14,7 @@ assets/data/linksMap.ts
 
 ---
 
-### ✍️ How to Add or Edit Links
+**### ✍️ How to Add or Edit Links**
 
 Define your link structure using `linksMap`. Example:
 
@@ -54,7 +54,7 @@ export const linksMap = [
 
 ---
 
-### ⚙️ How to Use `linkHref(id)`
+**### ⚙️ How to Use `linkHref(id)`**
 
 The utility function `linkHref()` returns the corresponding path (`href`) based on the `id`.
 
@@ -73,3 +73,50 @@ router.push(linkHref('home'));
 ```
 
 > ❗ If you pass an invalid ID, TypeScript will warn you. At runtime, the function throws a descriptive error.
+
+---
+
+## 🧠 Header Behavior Hook (`useHeaderBehavior`)
+
+This custom hook provides dynamic header behavior, such as hiding on scroll or changing background color after a scroll threshold.
+
+---
+
+### 📦 Import
+
+```ts
+import { useHeaderBehavior } from '@/hooks/useHeaderBehavior';
+```
+
+---
+
+### ⚙️ Usage
+
+```ts
+const { showNav, bgColor } = useHeaderBehavior({
+  scrollHide: true,              // Header hides on scroll down, shows on scroll up
+  changeColorOnScroll: true,    // Changes background color after threshold
+  scrollThreshold: 150,         // Scroll threshold in px (default: 100)
+  fixedColor: '#fff',           // Color after crossing threshold
+  defaultColor: 'transparent',  // Default color before scroll
+});
+```
+
+You can use `showNav` to control header visibility and `bgColor` for dynamic styling.
+
+---
+
+### 💡 Notes
+
+* `scrollHide` and `changeColorOnScroll` can be used independently or together.
+* Default settings:
+
+  ```ts
+  {
+    scrollHide: false,
+    changeColorOnScroll: false,
+    scrollThreshold: 100,
+    fixedColor: 'lightgray',
+    defaultColor: 'transparent',
+  }
+  ```
