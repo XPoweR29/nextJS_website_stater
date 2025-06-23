@@ -2,7 +2,6 @@ import React from 'react';
 import styles from './HomeStart.module.scss';
 import { Wrapper } from '@/components/Wrapper/Wrapper';
 import { linkHref } from '@/utils/linkHref.helper';
-import Link from 'next/link';
 
 export const HomeStart = () => {
 	return (

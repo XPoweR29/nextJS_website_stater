@@ -31,11 +31,13 @@ export default function RootLayout({
   );
 }
 
-//IMPROVE: Zacommituj zmiany żeby było do czego wracać!
 
 //TODO: pamiętaj o hooku który pilnuje tego czy dany obraz został załadowany. Szczególnie ważne poodczas używania loadera. 
 
 //TODO: Stworzyć header z opcjonalnym załączaniem chowania go oraz ze zmianą tła. 
+
+//TODO: implementacja galeri oraz hook UseGallery
+
 
 //FIXME: Pamiętaj o info o cookies!
 

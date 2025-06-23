@@ -7,7 +7,7 @@ export const linksMap = [
 	{
 		id: 'about',
 		label: 'About',
-		href: '/about',
+		href: '/#about',
 	},
 	{
 		id: 'services',

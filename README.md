@@ -9,7 +9,7 @@ This project uses a centralized system to define and use routes across the appli
 All links are stored in:
 
 ```ts
-lib/nav/links.ts
+assets/data/linksMap.ts
 ```
 
 ---
