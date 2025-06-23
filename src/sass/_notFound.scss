@@ -1,0 +1,52 @@
+@use './colors' as *;
+
+.notFoundPage {
+	position: relative;
+	padding: 5em 0;
+	padding-top: 10em;
+	border-radius: 0px 0px 40px 40px;
+	overflow: clip;
+	z-index: 1;
+	background-color: white;
+
+	@media (width>=992px) {
+		border-radius: 0px 0px 60px 60px;
+	}
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.heading {
+        margin-top: 1em;
+		text-align: center;
+	}
+
+    .text {
+        margin-top: 1em;
+        text-align: center;
+    }
+
+	.image {
+		width: 200px;
+	}
+
+    a {
+        margin-top: 2em;
+        font-weight: 500;
+        text-align: center;
+        text-decoration: underline;
+        color: $black;
+    }
+}
+
+@media(width >=768px) {
+ .notFoundPage {
+    padding-top: 12em;
+    .image {
+        width: 300px;
+    }
+ }
+}

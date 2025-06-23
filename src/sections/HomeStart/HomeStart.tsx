@@ -3,7 +3,7 @@ import styles from './HomeStart.module.scss';
 import { Wrapper } from '@/components/Wrapper/Wrapper';
 import { linkHref } from '@/utils/linkHref.helper';
 
-export const HomeStart = () => {
+export const HomeStart = async () => {
 	return (
 		<section className={styles.section}>
 			<Wrapper className={styles.wrapper}>

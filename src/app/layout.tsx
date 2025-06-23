@@ -32,11 +32,15 @@ export default function RootLayout({
 }
 
 
-//TODO: pamiętaj o hooku który pilnuje tego czy dany obraz został załadowany. Szczególnie ważne poodczas używania loadera. 
+//TODO: notFoundPage.tsx 
 
 //TODO: Stworzyć header z opcjonalnym załączaniem chowania go oraz ze zmianą tła. 
 
 //TODO: implementacja galeri oraz hook UseGallery
+
+//TODO: dodać wszystkie przykądowe assety takie jak: og_img, logo, .ico itd.
+
+//IMPROVE: pamiętaj o siteConfig, metadanych oraz schema
 
 
 //FIXME: Pamiętaj o info o cookies!

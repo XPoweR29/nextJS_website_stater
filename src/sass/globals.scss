@@ -1,5 +1,7 @@
 @use './reset';
 @use './hamburger';
+@use './loader';
+@use './notFound';
 @use './common' as *;
 
 body {
