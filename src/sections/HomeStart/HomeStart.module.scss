@@ -1,0 +1,30 @@
+@use '../../sass/common' as *;
+
+.section {
+	height: 100vh;
+    padding-top: 5em;
+
+	.wrapper {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+    .heading {
+        @include mainHeading;
+        text-align: center;
+    }
+
+    .text {
+        @include text;
+        margin-top: 2em;
+        max-width: 950px;
+        text-align: center;
+    }
+
+    .button {
+        @include button;
+        margin-top: 4em;
+    }
+}

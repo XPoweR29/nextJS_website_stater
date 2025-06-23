@@ -1,0 +1,48 @@
+@use '../../sass/common' as *;
+
+.mobileMenu {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 3em;
+	transform: translate(-50%, -50%);
+	list-style: none;
+	z-index: 10;
+
+	.link {
+		position: relative;
+		color: $black;
+		transition: color 0.2s;
+		animation: slide-in-top 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+
+		&::before {
+			position: absolute;
+			content: '';
+			bottom: -2px;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 2px;
+			width: 0;
+			background-color: $black;
+			transition: width 0.2s;
+		}
+
+		&:hover {
+			color: $black;
+
+			&::before {
+				width: 100%;
+			}
+		}
+	}
+
+	.phoneButton {
+		padding: 0.6em 0.9em;
+		gap: 0.5em;
+		animation: fadeIn 0.7s;
+	}
+}

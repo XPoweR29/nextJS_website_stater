@@ -1,0 +1,12 @@
+@use './reset';
+@use './hamburger';
+@use './common' as *;
+
+body {
+	font-size: 1.4rem;
+	min-width: 320px;
+
+	@media (min-width: 400px) {
+		font-size: 1.6rem;
+	}
+}

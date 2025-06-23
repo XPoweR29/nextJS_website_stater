@@ -1,0 +1,50 @@
+@use '../../sass/common' as *;
+
+.header {
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 75px;
+	padding: 0.5em 0;
+	background-color: lightgray;
+	transition: height 0.5s, transform 0.7s;
+	z-index: 100;
+
+	&.activeMobileMenu {
+		height: 100%;
+	}
+
+	&--hidden {
+		transform: translateX(-50%) translateY(-150%);
+	}
+
+	.navbar_container {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		.logo {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-left: 15px;
+			img {
+				width: 140px;
+			}
+		}
+
+		.burgerBtn {
+			-webkit-tap-highlight-color: transparent;
+			-moz-user-focus: none;
+			margin-left: auto;
+		}
+	}
+}
+
+@media (width >= 992px) {
+	.header {
+		padding: 1.2em 0;
+		height: auto;
+	}
+}

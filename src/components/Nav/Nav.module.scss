@@ -1,0 +1,66 @@
+@use '../../sass/common' as *;
+
+.linkbar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 2em;
+	top: 55%;
+	left: 50%;
+	list-style: none;
+
+	.menuItem {
+		position: relative;
+	}
+
+	.link {
+		position: relative;
+		width: fit-content;
+		color: rgba(0, 0, 0, 0.65);
+		transition: color 0.2s;
+
+		&::before {
+			position: absolute;
+			content: '';
+			bottom: -2px;
+			left: 50%;
+			transform: translateX(-50%);
+			height: 2px;
+			width: 0;
+			background-color: $black;
+			transition: width 0.2s;
+		}
+
+		&:hover {
+			color: $black;
+
+			&::before {
+				width: 100%;
+			}
+		}
+
+		&Active {
+			color: $black;
+
+			&::before {
+				position: absolute;
+				content: '';
+				bottom: -2px;
+				left: 50%;
+				transform: translateX(-50%);
+				height: 2px;
+				width: 100%;
+				background-color: $black;
+			}
+		}
+
+		&.button {
+			@include button;
+			padding: 0.5em 0.7em;
+
+			&::before {
+				display: none;
+			}
+		}
+	}
+}
