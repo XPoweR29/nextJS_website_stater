@@ -7,7 +7,6 @@ import styles from './Header.module.scss';
 
 import { useHeaderBehavior } from '@/hooks/useHeaderBehavior';
 import { useAppContext } from '@/hooks/useAppContext';
-import { usePathname } from 'next/navigation';
 import { BurgerBtn } from '../BurgerBtn/BurgerBtn';
 import { useBreakpoints } from '../../hooks/useBreakpoint';
 import { Nav } from '../Nav/Nav';
@@ -15,20 +14,14 @@ import { MobileMenu } from '../MobileMenu/MobileMenu';
 import { Wrapper } from '../Wrapper/Wrapper';
 
 import logo from '../../assets/images/logo.png';
+import { useHomeScrollTop } from '@/hooks/useHomeScrollTop';
 
 export const Header = () => {
 	const { breakpoint } = useBreakpoints();
 	const { mobileMenuShown, setMobileMenuShown } = useAppContext();
-	const { showNav, bgColor } = useHeaderBehavior({ scrollHide: true });
-	const pathname = usePathname();
-
-	const handleClick = (e: React.MouseEvent) => {
-		if (pathname === '/') {
-			e.preventDefault();
-			window.scrollTo({ top: 0, behavior: 'smooth' });
-		}
-	};
-
+	const { showNav } = useHeaderBehavior({ scrollHide: true });
+	
+	const handleScrollTop = useHomeScrollTop();
 
 	return (
 		<header
@@ -41,7 +34,7 @@ export const Header = () => {
 					<Link
 						href={'/'}
 						className={styles.logo}
-						onClick={handleClick}
+						onClick={handleScrollTop}
 						rel='preload'>
 						<Image
 							src={logo}
