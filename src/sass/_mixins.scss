@@ -5,6 +5,11 @@
     color: $black;
 }
 
+@mixin sectionHeading {
+    font-size: 2.2em;
+    color: $black;
+}
+
 @mixin text {
     color: $gray;
 }

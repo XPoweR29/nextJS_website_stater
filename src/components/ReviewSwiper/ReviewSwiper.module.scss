@@ -1,0 +1,33 @@
+@use '../../sass/common' as *;
+
+.reviewCard {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: 2em 0;
+	padding: 1em;
+	height: 200px;
+	border: 1px solid lightgray;
+	border-radius: 10px;
+
+	.comment {
+		margin: auto 0;
+		border-left: 3px solid $black;
+		padding-left: 1em;
+		font-weight: 200;
+		color: $gray;
+	}
+
+	.author {
+		align-self: end;
+		margin-top: auto;
+		font-weight: bold;
+		letter-spacing: 1.5px;
+	}
+}
+
+@media (width >= 992px) {
+	.reviewCard {
+		height: 250px;
+	}
+}

@@ -1,0 +1,14 @@
+@use '../../sass/common' as *;
+
+.section {
+    padding: 4em 0;
+
+    .heading {
+        @include sectionHeading;
+    }
+
+    .text {
+        @include text;
+        margin-top: 1em;
+    }
+}

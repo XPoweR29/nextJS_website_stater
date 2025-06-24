@@ -32,8 +32,6 @@ export default function RootLayout({
 }
 
 
-//FIXME: wyizolować funkcję handleClick w Header, tak aby mógł z niej korzystać też link 'start' w nawigacji.
-
 //TODO: GALERIA - komponent który ma własne zdjęcia i jako podglądu używa yet-another-lightbox. Natomiast jeśli chodzi o układ miniaturek to lepiej zostawić to do bieżącej imeplentacji wg. projektu strony (grid, mozaika, itd.)
 
 //TODO: RECENZJE - gotowy swiper z recenzjami, ma być również responsywny. Jedyne co pozostanie to dostosowanie stylu Slide do projektu. 

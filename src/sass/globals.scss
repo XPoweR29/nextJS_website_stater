@@ -4,6 +4,10 @@
 @use './notFound';
 @use './common' as *;
 
+html {
+	scroll-behavior: smooth;
+}
+
 body {
 	font-size: 1.4rem;
 	min-width: 320px;
