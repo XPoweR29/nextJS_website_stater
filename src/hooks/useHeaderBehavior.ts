@@ -25,6 +25,9 @@ export const useHeaderBehavior = ({
 	const [bgColor, setBgColor] = useState<string>(defaultColor);
 
 	useEffect(() => {
+		firstLoad.current = true;
+		prevScrollPos.current = 0;
+
 		const handleScroll = () => {
 			const currentScrollPos = window.scrollY;
 
