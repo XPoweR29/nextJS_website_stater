@@ -1,0 +1,148 @@
+@use '../../sass/common' as *;
+
+.form {
+	display: flex;
+	margin: 2em auto;
+	padding: 0.5em;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	max-width: 500px;
+	background-color: transparent;
+	border-radius: 5px;
+
+	border: 2px dashed gray;
+
+	.heading {
+		@include sectionHeading;
+		align-self: flex-start;
+	}
+
+	.text {
+		@include text;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	.formGroup {
+		width: 100%;
+		margin-top: 0.5em;
+
+		.input,
+		.textarea {
+			border: 1px solid rgba(0, 0, 0, 0.4);
+			padding: 1em 0.5em;
+			width: 100%;
+			border-radius: 5px;
+			color: $black;
+			background-color: transparent;
+
+			&:focus {
+				outline: 1px solid rgba(1, 61, 35, 0.5);
+				border-color: transparent;
+				box-shadow: 0px 0px 7px rgba(129, 199, 132, 0.5);
+			}
+		}
+
+		.textarea {
+			aspect-ratio: 1/0.5;
+			resize: none;
+		}
+	}
+
+	.checkboxLabel {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 1em;
+
+		.checkbox {
+			-webkit-appearance: none;
+			-moz-appearance: none;
+			appearance: none;
+			position: relative;
+			display: inline-block;
+			width: 30px;
+			aspect-ratio: 1/1;
+			border: 2px solid $black;
+			border-radius: 2px;
+			background-color: transparent;
+			outline: none;
+			cursor: pointer;
+			transition: background-color 0.2s ease, border-color 0.2s ease;
+
+			&:checked {
+				background-color: transparent;
+				border-color: $black;
+
+				&::after {
+					content: '';
+					position: absolute;
+					top: 40%;
+					left: 18%;
+					width: 40%;
+					aspect-ratio: 0.5/1;
+					border: solid $black;
+					border-width: 0 2px 2px 0;
+					transform: rotate(45deg) translate(-50%, -50%);
+				}
+			}
+		}
+
+		p {
+			font-size: 0.79em;
+		}
+
+		a {
+			color: $black;
+			text-decoration: underline;
+		}
+	}
+
+	.error {
+		height: 15px;
+		font-size: 0.8em;
+		letter-spacing: 1px;
+		color: red;
+	}
+
+	.submitButton {
+		@include button;
+		display: flex;
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		gap: 0.5em;
+		margin-top: 2em;
+		letter-spacing: 2px;
+
+		.icon {
+			width: 20px;
+		}
+	}
+}
+
+.srOnly {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0, 0, 0, 0);
+	clip-path: inset(50%);
+	white-space: nowrap;
+	border: 0;
+}
+
+@media(width >= 992px) {
+	.form{
+		.formGroup{
+			.textarea {
+				aspect-ratio: 1/0.4;
+			}
+		}
+	}
+}
+

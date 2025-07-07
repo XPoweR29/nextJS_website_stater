@@ -1,0 +1,15 @@
+@use '../../sass/common' as *;
+
+.section {
+    padding-top: 15em;
+
+    .heading {
+        @include mainHeading;
+    }
+
+    .text {
+        @include text;
+        margin-top: 1em;
+        width: 70%;
+    }
+}

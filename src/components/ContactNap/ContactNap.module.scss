@@ -1,0 +1,83 @@
+@use '../../sass/common' as *;
+
+.section {
+	position: relative;
+	padding-top: 4em;
+	padding-bottom: 2em;
+	margin-top: 3em;
+
+	.napContainer {
+		display: flex;
+		flex-direction: column;
+		margin: 0 auto;
+		width: fit-content;
+		gap: 3em;
+		list-style: none;
+		font-style: normal;
+		color: $gray
+	}
+
+	.napItem {
+		padding: 0.5em;
+		border-radius: 7px;
+		background-color: transparent;
+		transition: background-color 0.1s;
+
+		a {
+			display: flex;
+			align-items: flex-start;
+			gap: 1em;
+		}
+
+		.icon {
+			font-size: 4em;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			gap: 0.7em;
+			color: $black;
+
+			span {
+				font-weight: 600;
+				font-size: 1.2em;
+			}
+
+			p {
+				font-size: 0.85em;
+				opacity: 0.9;
+			}
+		}
+
+		&:hover {
+			background-color: rgba(0, 0, 0, 0.1);
+		}
+	}
+}
+
+@media (width >= 992px) {
+	.section {
+		padding-top: 0;
+
+		&::after {
+			top: 50%;
+			height: 65%;
+			transform: translateY(-50%);
+		}
+
+		.wrapper {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+}
+
+@media (width >= 1200px) {
+	.section {
+		.wrapper {
+			justify-content: space-around;
+		}
+	}
+}
