@@ -31,11 +31,6 @@ export default function RootLayout({
   );
 }
 
-
-//TODO: GALERIA - komponent który ma własne zdjęcia i jako podglądu używa yet-another-lightbox. Natomiast jeśli chodzi o układ miniaturek to lepiej zostawić to do bieżącej imeplentacji wg. projektu strony (grid, mozaika, itd.)
-
-//TODO: RECENZJE - gotowy swiper z recenzjami, ma być również responsywny. Jedyne co pozostanie to dostosowanie stylu Slide do projektu. 
-
 //TODO: dodać wszystkie przykądowe assety takie jak: og_img, logo, .ico itd. (dodaj komentarz przy każdym schema żeby pamiętać o jego odpowiednim typie wg. przeznaczenia strony.)
 
 //TODO: FORMULARZ - gotowy formularz kontktowy który jest odpowiednio walidowany. Jedyne to co komentarze w miejscu jego konfiguracji.

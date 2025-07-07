@@ -1,14 +1,14 @@
 import { Wrapper } from '@/components/Wrapper/Wrapper';
 import styles from './page.module.scss';
 import { HomeStart } from '@/sections/HomeStart/HomeStart';
-import { HomoeAbout } from '@/sections/HomeAbout/HomoeAbout';
+import { HomeAbout } from '@/sections/HomeAbout/HomeAbout';
 
 export default function Home() {
 
 	return (
 		<>
 			<HomeStart/>
-			<HomoeAbout/>
+			<HomeAbout/>
 		</>
 	);
 }
