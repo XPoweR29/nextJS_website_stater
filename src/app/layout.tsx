@@ -1,19 +1,20 @@
-import type { Metadata } from 'next';
 import { Lato } from 'next/font/google';
 import '../sass/globals.scss';
 import { ContextProvider } from '../contexts/app.context';
 import { Header } from '@/components/Header/Header';
 import { Toaster } from 'react-hot-toast';
+import { createMetadata } from '@/utils/metadata';
 
 const lato = Lato({
 	subsets: ['latin'],
 	weight: ['400', '700'],
 });
 
-export const metadata: Metadata = {
-	title: 'Project Starter',
-	description: 'Created by WebCrftSTUDIO',
-};
+export const metadata = createMetadata({
+	title: 'Professional Frontend Starter for Developers',
+	description:
+		'Kickstart your modern frontend projects with this clean, SEO-friendly, and scalable boilerplate built with Next.js, TypeScript, and SCSS Modules.',
+});
 
 export default function RootLayout({
 	children,
@@ -33,13 +34,7 @@ export default function RootLayout({
 	);
 }
 
-// 
-
-//TODO: dodać wszystkie przykądowe assety takie jak: og_img, logo, .ico itd. (dodaj komentarz przy każdym schema żeby pamiętać o jego odpowiednim typie wg. przeznaczenia strony.)
-
 //TODO: FOOTER - kompletna stopka, która wykorzystuje informacje z siteConfig oraz jest poprawnie skonstruowana semantycznie.
-
-//IMPROVE: pamiętaj o siteConfig, metadanych oraz schema
 
 //FIXME: Pamiętaj o info o cookies!
 

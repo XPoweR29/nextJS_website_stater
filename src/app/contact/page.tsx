@@ -1,32 +1,31 @@
-import { ContactForm } from '@/components/ContactForm/ContactForm';
 import { ContactNap } from '@/components/ContactNap/ContactNap';
 import { siteConfig } from '@/config/site.config';
 import { ContactStart } from '@/sections/ContactStart/ContactStart';
+import { createMetadata } from '@/utils/metadata';
 import React from 'react';
 
-const SLUG = 'kontakt';
+const SLUG = 'contact';
 
 const schema = {
 	'@context': 'https://schema.org',
 	'@type': 'ContactPage',
 	'@id': `${siteConfig.baseUrl}/${SLUG}/#contact`,
 	url: `${siteConfig.baseUrl}/${SLUG}`,
-	name: 'Kontakt | Działki w Beskidzie Żywieckim',
+	name: 'Contact | Frontend Starter for Developers',
 	description:
-		'Skontaktuj się z nami – zadzwoń pod +48 504 058 507 lub wypełnij formularz na tej stronie.',
+		'Get in touch with us — whether you have questions, feedback, or want to contribute to this frontend boilerplate.',
 	isPartOf: {
 		'@type': 'WebSite',
 		'@id': `${siteConfig.baseUrl}/#main`,
 	},
+	mainEntityOfPage: {
+		'@type': 'WebPage',
+		'@id': `${siteConfig.baseUrl}/${SLUG}`,
+	},
 	potentialAction: [
 		{
-			'@type': 'CallAction',
-			name: 'Zadzwoń do nas',
-			target: `tel:${siteConfig.contact.phoneHref}`,
-		},
-		{
 			'@type': 'SendAction',
-			name: 'Wyślij zapytanie',
+			name: 'Send a message',
 			target: {
 				'@type': 'EntryPoint',
 				urlTemplate: `${siteConfig.baseUrl}/${SLUG}#formularz`,
@@ -35,16 +34,16 @@ const schema = {
 					'https://schema.org/MobileWebPlatform',
 				],
 			},
-		},
+		}
 	],
 };
 
-// export const metadata = createMetadata({
-// 	slug: SLUG,
-// 	title: 'Kontakt | Działki na sprzedaż w Beskidzie Żywieckim',
-// 	description:
-// 		'Skontaktuj się z nami. Zadzwoń lub napisz maila, aby dowiedzieć się więcej o dostępnych działkach.',
-// });
+export const metadata = createMetadata({
+	slug: SLUG,
+	title: 'Contact | Frontend Starter Boilerplate for Developers',
+	description:
+		'Want to ask something or contribute to this frontend starter project? Get in touch via the form or call us directly.',
+});
 
 const Contact = () => {
 	return (
@@ -54,8 +53,8 @@ const Contact = () => {
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
 			/>
 
-            <ContactStart/>
-            <ContactNap/>
+			<ContactStart />
+			<ContactNap />
 		</>
 	);
 };

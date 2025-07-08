@@ -1,0 +1,39 @@
+@use '../../sass/common' as *;
+
+.privacy {
+	position: relative;
+	padding-top: 12em;
+	padding-bottom: 10em;
+	border-radius: 0px 0px 40px 40px;
+	overflow: clip;
+	z-index: 1;
+	background-color: white;
+
+	@media(width>=992px) {
+		border-radius: 0px 0px 60px 60px;
+	}
+
+	h1 {
+		margin-bottom: 2em;
+		font-size: 2em;
+		letter-spacing: 1px;
+		text-align: center;
+		text-transform: uppercase;
+	}
+
+	h2 {
+		color: $black;
+		margin: 1.5em 0;
+		margin-bottom: 0.5em;
+	}
+
+	ul {
+		list-style: none;
+	}
+
+	a {
+		color: $black;
+		font-weight: 500;
+		text-decoration: underline;
+	}
+}

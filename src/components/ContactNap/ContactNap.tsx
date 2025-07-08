@@ -53,7 +53,7 @@ export const ContactNap = ({ className }: Props) => {
 
 						<li className={styles.napItem}>
 							<a
-								href={siteConfig.socials.facebook!}
+								href={siteConfig.externalLinks.facebook!}
 								target='_blank'
 								rel='noopener noreferrer'
 								aria-label='Śledź nas na Facebooku'>
