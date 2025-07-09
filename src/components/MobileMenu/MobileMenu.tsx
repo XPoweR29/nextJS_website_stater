@@ -26,7 +26,9 @@ export const MobileMenu = () => {
 	return (
 		<nav>
 			<ul className={styles.mobileMenu}>
-				{linksMap.map((link, i) => (
+				{linksMap
+				.filter(link => !link.hidden)
+				.map((link, i) => (
 					<li key={link.id}>
 						<Link
 							href={link.href}

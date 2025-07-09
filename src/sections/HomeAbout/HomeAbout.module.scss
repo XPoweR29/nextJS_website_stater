@@ -1,7 +1,8 @@
 @use '../../sass/common' as *;
 
 .section {
-    padding: 4em 0;
+    padding: 5em 0;
+    padding-bottom: 10em;
 
     .heading {
         @include sectionHeading;

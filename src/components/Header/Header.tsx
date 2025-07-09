@@ -35,12 +35,13 @@ export const Header = () => {
 						href={'/'}
 						className={styles.logo}
 						onClick={handleScrollTop}
+						aria-label='Strona startowa'
 						rel='preload'>
 						<Image
 							src={logo}
 							width={250}
 							height={52}
-							alt='Działki na sprzedaż w Beskidzie Żywieckim'
+							alt=''
 							priority
 						/>
 					</Link>

@@ -10,7 +10,9 @@ export const Nav = () => {
 	return (
 		<nav>
 			<ul className={styles.linkbar}>
-				{linksMap.map((link) => (
+				{linksMap
+					.filter(link => !link.hidden)
+					.map((link) => (
 					<li key={link.id} className={styles.menuItem}>
 						<Link href={link.href} className={`${styles.link} ${link.id==='contact'?styles.button:''}`} onClick={link.id==='home'?handleScrollTop:undefined}>
 							{link.label}

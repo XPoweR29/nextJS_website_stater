@@ -4,14 +4,9 @@
 	position: relative;
 	padding-top: 12em;
 	padding-bottom: 10em;
-	border-radius: 0px 0px 40px 40px;
 	overflow: clip;
 	z-index: 1;
 	background-color: white;
-
-	@media(width>=992px) {
-		border-radius: 0px 0px 60px 60px;
-	}
 
 	h1 {
 		margin-bottom: 2em;

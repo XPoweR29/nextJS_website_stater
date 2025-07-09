@@ -3,4 +3,5 @@ type NavLink = {
 	label: string;
 	href: string;
 	children?: readonly NavLink[];
+	hidden: boolean;
 };

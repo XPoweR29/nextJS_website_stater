@@ -5,6 +5,7 @@ import styles from './ContactForm.module.scss';
 import { ContactFormData, useContactForm } from '@/hooks/useContactForm';
 import Link from 'next/link';
 import toast from 'react-hot-toast';
+import { linkHref } from '@/utils/linkHref.helper';
 
 export const ContactForm = ({ className }: { className?: string }) => {
 	const [isSubmiting, setIsSubmiting] = useState<boolean>(false);
@@ -157,7 +158,7 @@ export const ContactForm = ({ className }: { className?: string }) => {
 					/>
 					<p>
 						Akceptuję{' '}
-						<Link href='/polityka-prywatnosci'>politykę prywatności</Link> i
+						<Link href={linkHref('policy')}>politykę prywatności</Link> i
 						wyrażam zgodę na kontakt w sprawie mojego zapytania.
 					</p>
 				</label>

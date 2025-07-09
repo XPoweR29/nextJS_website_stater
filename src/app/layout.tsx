@@ -4,6 +4,7 @@ import { ContextProvider } from '../contexts/app.context';
 import { Header } from '@/components/Header/Header';
 import { Toaster } from 'react-hot-toast';
 import { createMetadata } from '@/utils/metadata';
+import { Footer } from '@/components/Footer/Footer';
 
 const lato = Lato({
 	subsets: ['latin'],
@@ -27,14 +28,13 @@ export default function RootLayout({
 				<ContextProvider>
 					<Header />
 					{children}
+					<Footer/>
 					<Toaster />
 				</ContextProvider>
 			</body>
 		</html>
 	);
 }
-
-//TODO: FOOTER - kompletna stopka, która wykorzystuje informacje z siteConfig oraz jest poprawnie skonstruowana semantycznie.
 
 //FIXME: Pamiętaj o info o cookies!
 
