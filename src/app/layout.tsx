@@ -5,6 +5,8 @@ import { Header } from '@/components/Header/Header';
 import { Toaster } from 'react-hot-toast';
 import { createMetadata } from '@/utils/metadata';
 import { Footer } from '@/components/Footer/Footer';
+import { CookieConsentBanner } from '@/components/CookieConsentBanner/CookieConsentBanner';
+import { GAScriptLoader } from '@/system/GAScriptLoader';
 
 const lato = Lato({
 	subsets: ['latin'],
@@ -28,14 +30,17 @@ export default function RootLayout({
 				<ContextProvider>
 					<Header />
 					{children}
-					<Footer/>
+					<Footer />
 					<Toaster />
+					<CookieConsentBanner />
+					<GAScriptLoader />
 				</ContextProvider>
 			</body>
 		</html>
 	);
 }
 
-//FIXME: Pamiętaj o info o cookies!
+//IMPROVE: Dodaj logikę dla warunkowego dodawania GA wg. ustawień cookieConsent
+//IMPROVE: Jednak zmieniamy trzymanie informacji o zgodach do LocalSotrage - wystarczy tylko na froncie i będzie nieco wydajniejsze.
 
 // FIXME: sporządzić checklistę dla komplentego stowrzenia nowej strony z tego startera. Tak żeby nie zpomnieć o niczym i wszystko poprawnie skonfigurować
