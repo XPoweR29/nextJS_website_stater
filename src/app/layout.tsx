@@ -43,8 +43,6 @@ export default function RootLayout({
 	);
 }
 
-//IMPROVE: jeśli chodzi o zdjęcia w galerii to daj jakieś stockowe 3 albo coś. 
-
 //IMPROVE: zrób jeden, zgrupowany provider pod nazwą appProvider - wtefdy layou będzie czytelniejszy i nie będzie niepotrzebnych zagnieżdzeń,
 
 // FIXME: sporządzić checklistę dla komplentego stowrzenia nowej strony z tego startera. Tak żeby nie zpomnieć o niczym i wszystko poprawnie skonfigurować

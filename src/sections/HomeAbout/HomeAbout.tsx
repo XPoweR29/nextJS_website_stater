@@ -4,18 +4,14 @@ import { Wrapper } from '@/components/Wrapper/Wrapper';
 import { ReviewSwiper } from '@/components/ReviewSwiper/ReviewSwiper';
 import { Gallery } from '@/components/Gallery/Gallery';
 
-import img1 from '../../assets/gallery/photo_1.jpg';
-import img2 from '../../assets/gallery/photo_2.jpg';
-import img3 from '../../assets/gallery/photo_3.jpg';
-import img4 from '../../assets/gallery/photo_1.jpg';
-import img5 from '../../assets/gallery/photo_2.jpg';
-import img6 from '../../assets/gallery/photo_3.jpg';
-import img7 from '../../assets/gallery/photo_1.jpg';
-import img8 from '../../assets/gallery/photo_2.jpg';
-import img9 from '../../assets/gallery/photo_3.jpg';
-import img10 from '../../assets/gallery/photo_1.jpg';
+import img1 from '../../assets/gallery/init_photo1.webp';
+import img2 from '../../assets/gallery/init_photo2.webp';
+import img3 from '../../assets/gallery/init_photo3.webp';
+import img4 from '../../assets/gallery/init_photo1.webp';
+import img5 from '../../assets/gallery/init_photo2.webp';
+import img6 from '../../assets/gallery/init_photo3.webp';
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10];
+const images = [img1, img2, img3, img4, img5, img6];
 
 export const HomeAbout = () => {
 	return (
