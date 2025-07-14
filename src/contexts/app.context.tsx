@@ -2,14 +2,10 @@
 
 import React, { ReactNode, createContext, useEffect, useState } from 'react';
 import { AppContextType } from '../types/appContext.type';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
 
 export const AppContext = createContext<AppContextType | null>(null);
 
 export const ContextProvider = ({ children }: { children: ReactNode }) => {
-	const {consent: storedConsent} = useCookieConsent();
-	const [currentCookieTab, setCurrentCookieTab] = useState<string>('unset');
-	const [cookieConsent, setCookieConsent] = useState<CookieConsentSettings | null>(storedConsent);
 	const [mobileMenuShown, setMobileMenuShown] = useState(false);
 	const [breakpoint, setBreakpoint] = useState<Breakpoints>({
 		sm: false,
@@ -42,10 +38,6 @@ export const ContextProvider = ({ children }: { children: ReactNode }) => {
 		breakpoint,
 		mobileMenuShown,
 		setMobileMenuShown,
-		currentCookieTab,
-		setCurrentCookieTab,
-		cookieConsent,
-		setCookieConsent
 	};
 
 	return (

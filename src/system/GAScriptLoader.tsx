@@ -1,14 +1,12 @@
 'use client';
 
+import { useCookieContext } from '@/hooks/useCookieContext';
 import Script from 'next/script';
-import { useCookieConsent } from '@/hooks/useCookieConsent'; 
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react'; 
 
 const GA_TAG_ID = process.env.NEXT_PUBLIC_GA_ID;
-
 export const GAScriptLoader = () => {
-	const { consent } = useCookieConsent();
-	//FIXME: zbuduj to na zmiennej dynamicznej trzymanej w kontekście 
+	const { consent } = useCookieContext();
 	const [isAllowed, setIsAllowed] = useState(false);
 
 	useEffect(() => {
@@ -30,7 +28,7 @@ export const GAScriptLoader = () => {
 					window.dataLayer = window.dataLayer || [];
 					function gtag(){dataLayer.push(arguments);}
 					gtag('js', new Date());
-					gtag('config', ${GA_TAG_ID}, {
+					gtag('config', '${GA_TAG_ID}', {
 						anonymize_ip: true,
 						cookie_flags: 'SameSite=None;Secure'
 					});

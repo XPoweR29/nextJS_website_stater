@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styles from './TabsGroup.module.scss';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
-import { useAppContext } from '@/hooks/useAppContext';
+import { useCookieContext } from '@/hooks/useCookieContext';
 
 type Tab = {
 	id: string;
@@ -15,7 +14,7 @@ interface Props {
 }
 
 export const TabsGroup = ({ tabs, initialTab }: Props) => {
-	const { currentCookieTab, setCurrentCookieTab } = useAppContext();
+	const { currentCookieTab, setCurrentCookieTab } = useCookieContext();
 
 	useEffect(() => {
 		if (initialTab) {

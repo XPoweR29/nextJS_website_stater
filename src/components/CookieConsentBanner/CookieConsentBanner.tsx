@@ -1,13 +1,12 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './CookieConsentBanner.module.scss';
 import logo from '../../assets/images/logo.png';
 import { CookieAccordion } from '../CookieAccordion/CookieAccordion';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
-import { useAppContext } from '@/hooks/useAppContext';
 import { TabsGroup } from '../TabsGroup/TabsGroup';
 import Image from 'next/image';
+import { useCookieContext } from '@/hooks/useCookieContext';
 
 const consents: Consent[] = [
 	{
@@ -49,21 +48,31 @@ const consents: Consent[] = [
 ];
 
 export const CookieConsentBanner = () => {
-	const { status, acceptAll, saveConsent } = useCookieConsent();
-	const { currentCookieTab, setCurrentCookieTab, cookieConsent } =
-		useAppContext();
+	const [showBanner, setShowbanner] = useState(false);
+	const { consentStatus, acceptAll, saveConsent, editedConsent, currentCookieTab, setCurrentCookieTab, consent, isHydrated } = useCookieContext();
+
+	useEffect(() => {
+		if(isHydrated && consentStatus === 'unset') {
+			const timeout = setTimeout(() => {
+				setShowbanner(true);
+			}, 500);
+
+			return () => clearTimeout(timeout);
+		} else setShowbanner(false);
+
+	}, [consentStatus, isHydrated]);
 
 	const handleSave = () => {
-		if (!cookieConsent) return;
-		saveConsent(cookieConsent, 'custom');
+		if (!editedConsent) return;
+		saveConsent(editedConsent, 'custom');
 	};
-
-	if (status !== 'unset') return null;
+	
+	if(!showBanner) return null;
 
 	return (
 		<div className={styles.cookieBanner}>
 			<div className={styles.container}>
-				
+
 				<div className={styles.imgContainer}>
 					<Image className={styles.logo} src={logo} alt='' aria-hidden draggable={false} />
 				</div>

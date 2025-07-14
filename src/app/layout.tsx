@@ -1,12 +1,13 @@
 import { Lato } from 'next/font/google';
 import '../sass/globals.scss';
-import { ContextProvider } from '../contexts/app.context';
 import { Header } from '@/components/Header/Header';
 import { Toaster } from 'react-hot-toast';
 import { createMetadata } from '@/utils/metadata';
 import { Footer } from '@/components/Footer/Footer';
 import { CookieConsentBanner } from '@/components/CookieConsentBanner/CookieConsentBanner';
 import { GAScriptLoader } from '@/system/GAScriptLoader';
+import { ContextProvider } from '@/contexts/app.context';
+import { CookieContextProvider } from '@/contexts/cookie.context';
 
 const lato = Lato({
 	subsets: ['latin'],
@@ -28,19 +29,22 @@ export default function RootLayout({
 		<html lang='pl'>
 			<body className={lato.className}>
 				<ContextProvider>
-					<Header />
-					{children}
-					<Footer />
-					<Toaster />
-					<CookieConsentBanner />
-					<GAScriptLoader />
+					<CookieContextProvider>
+						<Header />
+						{children}
+						<Footer />
+						<Toaster />
+						<CookieConsentBanner />
+						<GAScriptLoader />
+					</CookieContextProvider>
 				</ContextProvider>
 			</body>
 		</html>
 	);
 }
 
-//IMPROVE: Dodaj logikę dla warunkowego dodawania GA wg. ustawień cookieConsent
-//IMPROVE: Jednak zmieniamy trzymanie informacji o zgodach do LocalSotrage - wystarczy tylko na froncie i będzie nieco wydajniejsze.
+//IMPROVE: jeśli chodzi o zdjęcia w galerii to daj jakieś stockowe 3 albo coś. 
+
+//IMPROVE: zrób jeden, zgrupowany provider pod nazwą appProvider - wtefdy layou będzie czytelniejszy i nie będzie niepotrzebnych zagnieżdzeń,
 
 // FIXME: sporządzić checklistę dla komplentego stowrzenia nowej strony z tego startera. Tak żeby nie zpomnieć o niczym i wszystko poprawnie skonfigurować

@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './CookieAccordion.module.scss';
 import { Icon } from '@iconify/react/dist/iconify.js';
 import { Switch } from '../Switch/Switch';
-import { useCookieConsent } from '@/hooks/useCookieConsent';
-import { useAppContext } from '@/hooks/useAppContext';
+import { useCookieContext } from '@/hooks/useCookieContext';
+import { defaultConsent } from '@/contexts/cookie.context';
 
 interface Props {
 	items: Consent[];
@@ -11,7 +11,7 @@ interface Props {
 }
 
 export const CookieAccordion = ({ items, allowMultiopen }: Props) => {
-	const {cookieConsent, setCookieConsent} = useAppContext();
+	const { editedConsent, setEditedConsent } = useCookieContext();
 	const [openItems, setOpenItems] = useState<string[]>([]);
 
 	const toggleItem = (id: string) => {
@@ -25,8 +25,8 @@ export const CookieAccordion = ({ items, allowMultiopen }: Props) => {
 	};
 
 	const handleSwitch = (id: keyof CookieConsentSettings, value: boolean) => {
-		if (!cookieConsent) return;
-		setCookieConsent((prev) => ({
+		if (!editedConsent) return;
+		setEditedConsent((prev) => ({
 			...prev!,
 			[id]: value,
 		}));
@@ -47,7 +47,7 @@ export const CookieAccordion = ({ items, allowMultiopen }: Props) => {
 							onChange={(value)=>handleSwitch(id, value)}
 							className={styles.switch}
 							disabled={id === 'necessary'}
-							checked={id==='necessary'?true:cookieConsent?.[id] ?? false}
+							checked={id==='necessary'?true:editedConsent?.[id] ?? false}
 						/>
 					</button>
 
