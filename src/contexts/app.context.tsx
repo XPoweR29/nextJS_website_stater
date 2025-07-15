@@ -5,7 +5,7 @@ import { AppContextType } from '../types/appContext.type';
 
 export const AppContext = createContext<AppContextType | null>(null);
 
-export const ContextProvider = ({ children }: { children: ReactNode }) => {
+export const AppContextProvider = ({ children }: { children: ReactNode }) => {
 	const [mobileMenuShown, setMobileMenuShown] = useState(false);
 	const [breakpoint, setBreakpoint] = useState<Breakpoints>({
 		sm: false,

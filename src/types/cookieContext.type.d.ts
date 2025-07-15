@@ -1,4 +1,4 @@
-import { SetStateAction } from "react";
+import React, { SetStateAction } from "react";
 
 interface CookieContextType {
 	consent: CookieConsentSettings | null;
@@ -18,4 +18,7 @@ interface CookieContextType {
 	resetConsent: ()=>void;
 
 	isHydrated: boolean;
+
+	showBanner: boolean;
+	setShowBanner: React.Dispatch<React.SetStateAction<boolean>>
 }

@@ -3,7 +3,6 @@
 import React from 'react';
 import styles from './Footer.module.scss';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Wrapper } from '../Wrapper/Wrapper';
 import Image from 'next/image';
 import { Icon } from '@iconify/react/dist/iconify.js';
@@ -13,9 +12,10 @@ import { useHomeScrollTop } from '@/hooks/useHomeScrollTop';
 import dev_logo from '../../assets/images/dev_logo.svg';
 import logo from '../../assets/images/logo_white.png';
 import { linkHref } from '@/utils/linkHref.helper';
+import { useCookieContext } from '@/hooks/useCookieContext';
 
 export const Footer = () => {
-	const pathname = usePathname();
+	const { setShowBanner } = useCookieContext();
 	const currentYear = new Date().getFullYear();
 	const handleScrollTop = useHomeScrollTop();
 
@@ -66,6 +66,7 @@ export const Footer = () => {
 					<Link href={linkHref('policy')} className={styles.link}>
 						Polityka prywatności
 					</Link>
+					<button type='button' className={styles.link} onClick={()=>setShowBanner(true)}>Ustawienia plików cookies</button>
 
 					<p className={styles.copyright}>
 						<span>© {currentYear} {siteConfig.siteName}</span>

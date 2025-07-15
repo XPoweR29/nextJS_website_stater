@@ -16,12 +16,19 @@ export const defaultConsent: CookieConsentSettings = {
 
 const CONSENT_KEY = 'cookie_consent';
 
-export const CookieContextProvider = ({ children }: { children: ReactNode }) => {
-	const [consent, setConsent] = useState<CookieConsentSettings | null>(defaultConsent);
+export const CookieContextProvider = ({
+	children,
+}: {
+	children: ReactNode;
+}) => {
+	const [consent, setConsent] = useState<CookieConsentSettings | null>(
+		defaultConsent
+	);
 	const [editedConsent, setEditedConsent] = useState<CookieConsentSettings | null>(consent);
 	const [consentStatus, setConsentStatus] = useState<ConsentStatus>('unset');
 	const [currentCookieTab, setCurrentCookieTab] = useState<string>('unset');
 	const [isHydrated, setIsHydrated] = useState(false);
+	const [showBanner, setShowBanner] = useState(false);
 
 	useEffect(() => {
 		const stored = localStorage.getItem(CONSENT_KEY);
@@ -38,13 +45,18 @@ export const CookieContextProvider = ({ children }: { children: ReactNode }) => 
 	}, []);
 
 	useEffect(() => {
-		if(consent) setEditedConsent(consent);
-	},[consent])
+		if (consent) setEditedConsent(consent);
+	}, [consent]);
 
-	const saveConsent = (newConsent: CookieConsentSettings, newStatus: ConsentStatus = 'custom') => {
+	const saveConsent = (
+		newConsent: CookieConsentSettings,
+		newStatus: ConsentStatus = 'custom'
+	) => {
 		localStorage.setItem(CONSENT_KEY, JSON.stringify(newConsent));
 		setConsent(newConsent);
 		setConsentStatus(newStatus);
+		setCurrentCookieTab('consents');
+		setShowBanner(false);
 	};
 
 	const acceptAll = () => {
@@ -56,7 +68,8 @@ export const CookieContextProvider = ({ children }: { children: ReactNode }) => 
 			marketing: true,
 			other: true,
 		};
-		saveConsent(all, 'accepted');
+		saveConsent({...all}, 'accepted');
+		setShowBanner(false);
 	};
 
 	const resetConsent = () => {
@@ -67,17 +80,24 @@ export const CookieContextProvider = ({ children }: { children: ReactNode }) => 
 
 	// declare type for all these vars in AppContextType!
 	const contextValues = {
-		consent, setConsent,
-		consentStatus, setConsentStatus,
+		consent,
+		setConsent,
+		consentStatus,
+		setConsentStatus,
 		acceptAll,
 		saveConsent,
 		resetConsent,
-		currentCookieTab, setCurrentCookieTab,
-		editedConsent, setEditedConsent,
+		currentCookieTab,
+		setCurrentCookieTab,
+		editedConsent,
+		setEditedConsent,
 		isHydrated,
+		showBanner, setShowBanner
 	};
 
 	return (
-		<CookieContext.Provider value={contextValues}>{children}</CookieContext.Provider>
+		<CookieContext.Provider value={contextValues}>
+			{children}
+		</CookieContext.Provider>
 	);
 };

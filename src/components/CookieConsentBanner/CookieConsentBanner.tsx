@@ -48,17 +48,16 @@ const consents: Consent[] = [
 ];
 
 export const CookieConsentBanner = () => {
-	const [showBanner, setShowbanner] = useState(false);
-	const { consentStatus, acceptAll, saveConsent, editedConsent, currentCookieTab, setCurrentCookieTab, consent, isHydrated } = useCookieContext();
+	const { consentStatus, acceptAll, saveConsent, editedConsent, currentCookieTab, setCurrentCookieTab, consent, isHydrated, showBanner, setShowBanner } = useCookieContext();
 
 	useEffect(() => {
 		if(isHydrated && consentStatus === 'unset') {
 			const timeout = setTimeout(() => {
-				setShowbanner(true);
+				setShowBanner(true);
 			}, 500);
 
 			return () => clearTimeout(timeout);
-		} else setShowbanner(false);
+		} else setShowBanner(false);
 
 	}, [consentStatus, isHydrated]);
 

@@ -6,8 +6,7 @@ import { createMetadata } from '@/utils/metadata';
 import { Footer } from '@/components/Footer/Footer';
 import { CookieConsentBanner } from '@/components/CookieConsentBanner/CookieConsentBanner';
 import { GAScriptLoader } from '@/system/GAScriptLoader';
-import { ContextProvider } from '@/contexts/app.context';
-import { CookieContextProvider } from '@/contexts/cookie.context';
+import { ContextsProvider } from '@/contexts/contextsProviders';
 
 const lato = Lato({
 	subsets: ['latin'],
@@ -28,16 +27,14 @@ export default function RootLayout({
 	return (
 		<html lang='pl'>
 			<body className={lato.className}>
-				<ContextProvider>
-					<CookieContextProvider>
-						<Header />
-						{children}
-						<Footer />
-						<Toaster />
-						<CookieConsentBanner />
-						<GAScriptLoader />
-					</CookieContextProvider>
-				</ContextProvider>
+				<ContextsProvider>
+					<Header />
+					{children}
+					<Footer />
+					<Toaster />
+					<CookieConsentBanner />
+					<GAScriptLoader />
+				</ContextsProvider>
 			</body>
 		</html>
 	);
